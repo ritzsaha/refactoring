@@ -27,23 +27,31 @@ public class StatementPrinter {
         final StringBuilder result = new StringBuilder("Statement for " + getInvoice().getCustomer()
                 + System.lineSeparator());
 
-        final NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
-
         for (Performance p : getInvoice().getPerformances()) {
 
             // add volume credits
             volumeCredits += getVolumeCredits(p);
 
             // print line for this order
-            result.append(String.format("  %s: %s (%s seats)%n", getPlay(p).getName(), frmt.format(
-                    getAmount(p) / Constants.PERCENT_FACTOR), p.getAudience()));
+            result.append(String.format("  %s: %s (%s seats)%n", getPlay(p).getName(),
+                    usd(getAmount(p)), p.getAudience()));
             totalAmount += getAmount(p);
         }
-        result.append(String.format("Amount owed is %s%n", frmt.format(totalAmount / Constants.PERCENT_FACTOR)));
+        usd(result, totalAmount);
         result.append(String.format("You earned %s credits%n", volumeCredits));
         return result.toString();
     }
 
+    private static StringBuilder usd(StringBuilder result, int totalAmount) {
+        return result.append(String.format("Amount owed is %s%n", usd(totalAmount)));
+    }
+
+    private static String usd(int totalAmount) {
+        return NumberFormat.getCurrencyInstance(Locale.US).format(
+                totalAmount / Constants.PERCENT_FACTOR);
+    }
+
+    /* task 2.3 */
     private int getVolumeCredits(Performance performance) {
         int total = 0;
         total += Math.max(performance.getAudience() - Constants.BASE_VOLUME_CREDIT_THRESHOLD, 0);
