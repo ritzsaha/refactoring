@@ -22,24 +22,38 @@ public class StatementPrinter {
      * @throws RuntimeException if one of the play types is not known
      */
     public String statement() {
-        int totalAmount = 0;
-        int volumeCredits = 0;
         final StringBuilder result = new StringBuilder("Statement for " + getInvoice().getCustomer()
                 + System.lineSeparator());
-
+        // loop 1
         for (Performance p : getInvoice().getPerformances()) {
 
             // add volume credits
-            volumeCredits += getVolumeCredits(p);
+            // volumeCredits += getVolumeCredits(p);
 
             // print line for this order
             result.append(String.format("  %s: %s (%s seats)%n", getPlay(p).getName(),
                     usd(getAmount(p)), p.getAudience()));
+            // totalAmount += getAmount(p);
+        }
+        usd(result, getTotalAmount());
+        result.append(String.format("You earned %s credits%n", getTotalVolumeCredits()));
+        return result.toString();
+    }
+
+    private int getTotalAmount() {
+        int totalAmount = 0;
+        for (Performance p : getInvoice().getPerformances()) {
             totalAmount += getAmount(p);
         }
-        usd(result, totalAmount);
-        result.append(String.format("You earned %s credits%n", volumeCredits));
-        return result.toString();
+        return totalAmount;
+    }
+
+    private int getTotalVolumeCredits() {
+        int volumeCredits = 0;
+        for (Performance p : getInvoice().getPerformances()) {
+            volumeCredits += getVolumeCredits(p);
+        }
+        return volumeCredits;
     }
 
     private static StringBuilder usd(StringBuilder result, int totalAmount) {
