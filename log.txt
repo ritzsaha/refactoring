@@ -1,3 +1,4 @@
+e42d214 Task 1.2: Updated git log
 c4ebc7e Task 1.1: Fixed CheckStyle Issues
 00684fc Task 1.1: Fixed CheckStyle Issues
 b545fe2 clarifying extracted method names in README.md
