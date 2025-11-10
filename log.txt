@@ -1,3 +1,4 @@
+8ad69b8 Task 2.1: Inlined thisAmount and finalized refactor
 0a9794b Task 1.2: Updated git log
 e42d214 Task 1.2: Updated git log
 c4ebc7e Task 1.1: Fixed CheckStyle Issues
