@@ -1,3 +1,6 @@
+406cbad Task 2.2: Extracted getVolumeCredits
+a68dc8c Task 2.2: Extracted getVolumeCredits
+2db7853 Task 2.1: Updated git log
 8ad69b8 Task 2.1: Inlined thisAmount and finalized refactor
 0a9794b Task 1.2: Updated git log
 e42d214 Task 1.2: Updated git log
