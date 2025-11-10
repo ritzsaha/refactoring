@@ -1,3 +1,5 @@
+9d76527 Task 2.4: Split loops
+7c1c98d Task 2.3: Updated git log
 a6407ad Task 2.3: Inline frmt variable
 0a42bf4 Task 2.2: Updated git log
 406cbad Task 2.2: Extracted getVolumeCredits
