@@ -1,3 +1,5 @@
+a6407ad Task 2.3: Inline frmt variable
+0a42bf4 Task 2.2: Updated git log
 406cbad Task 2.2: Extracted getVolumeCredits
 a68dc8c Task 2.2: Extracted getVolumeCredits
 2db7853 Task 2.1: Updated git log
